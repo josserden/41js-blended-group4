@@ -30,13 +30,15 @@
 
     <section class="py-5">
       <div class="container">
-        <form class="d-flex">
+        <form class="d-flex js-form">
           <input
             class="form-control me-2"
             type="text"
-            name="text"
+            name="todoText"
             placeholder="Add your todo"
             aria-label="Todo"
+            minlength="5"
+            required
           />
           <button class="btn" type="submit">
             <i class="bi bi-plus-circle"></i>
