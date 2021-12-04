@@ -1,16 +1,26 @@
 // Refs
 const refs = {
   form: document.querySelector('.js-form'),
+  todoList: document.querySelector('.js-todo-list'),
 };
 
-function generateId() {
-  return Date.now().toString(36) + Math.random().toString(36).substr(2);
+function createMarkup({ description }) {
+  return `<li class="col card text-white bg-secondary">
+            <div class="card-header">My Todo</div>
+            <div class="card-body">
+              <p class="card-text">${description}</p>
+            </div>
+          </li>`;
 }
 
 const todoService = {
   todoList: [],
 
   createTodo(text) {
+    const generateId = () => {
+      return Date.now().toString(36) + Math.random().toString(36).substr(2);
+    };
+
     return {
       id: generateId(),
       description: text,
@@ -36,7 +46,14 @@ function onSubmit(event) {
 
   if (!todoText) return alert('Введите текст!');
 
-  console.log(todoService.addTodo(todoText));
+  todoService.addTodo(todoText);
+
+  const todoListGallery = todoService.todoList
+    .map(todo => createMarkup(todo))
+    .join('');
+
+  refs.todoList.innerHTML = todoListGallery;
+
   refs.form.reset();
 }
 
