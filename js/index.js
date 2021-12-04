@@ -1,17 +1,7 @@
-// Refs
 const refs = {
   form: document.querySelector('.js-form'),
   todoList: document.querySelector('.js-todo-list'),
 };
-
-function createMarkup({ description }) {
-  return `<li class="col card text-white bg-secondary">
-            <div class="card-header">My Todo</div>
-            <div class="card-body">
-              <p class="card-text">${description}</p>
-            </div>
-          </li>`;
-}
 
 const todoService = {
   todoList: [],
@@ -47,6 +37,15 @@ function onSubmit(event) {
   if (!todoText) return alert('Введите текст!');
 
   todoService.addTodo(todoText);
+
+  const createMarkup = ({ description }) => {
+    return `<li class="col card text-white bg-secondary">
+            <div class="card-header">My Todo</div>
+            <div class="card-body">
+              <p class="card-text">${description}</p>
+            </div>
+          </li>`;
+  };
 
   const todoListGallery = todoService.todoList
     .map(todo => createMarkup(todo))
