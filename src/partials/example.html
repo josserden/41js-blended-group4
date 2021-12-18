@@ -1,0 +1,42 @@
+<!-- Header  -->
+<header class="shadow p-3 rounded">
+  <div class="container">
+    <div class="d-flex justify-content-center align-items-center">
+      <i class="bi bi-layout-text-window-reverse"></i>
+      <h1 class="m-0 ms-2">My Todos</h1>
+    </div>
+  </div>
+</header>
+
+<!-- Add Todd -->
+<section class="py-2">
+  <div class="container">
+    <form class="d-flex js-form">
+      <input
+        class="form-control me-2"
+        type="text"
+        name="todoText"
+        placeholder="Add your todo"
+        aria-label="Todo"
+        minlength="5"
+        required
+      />
+      <button class="btn" type="submit">
+        <i class="bi bi-plus-circle"></i>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- Markup Todo -->
+<section class="py-5">
+  <div class="container">
+    <ul
+      class="
+        row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3
+        p-0
+        js-todo-list
+      "
+    ></ul>
+  </div>
+</section>
